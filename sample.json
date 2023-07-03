@@ -1,0 +1,47 @@
+{
+    "categories": [
+        "fruits",
+        "vegetables",
+        "dairy",
+        "meat"
+    ],
+    "producers": [
+        "nestle",
+        "elit",
+        "shtraus",
+        "zogloveg"
+    ],
+    "products": [
+        { "name": "apple", "category": 0, "price": 10, "producer": 0 },
+        { "name": "banana", "category": 0, "price": 20, "producer": 1 },
+        { "name": "tomato", "category": 1, "price": 15, "producer": 2 },
+        { "name": "cucamber", "category": 1, "price": 30, "producer": 3 },
+        { "name": "milk", "category": 2, "price": 20, "producer": 1 },
+        { "name": "yogurt", "category": 2, "price": 15, "producer": 2 },
+        { "name": "chicken", "category": 3, "price": 50, "producer": 3 },
+        { "name": "steak", "category": 3, "price": 20, "producer": 1 }
+    ],
+    "users": [
+        { "name": "nisim", "email": "nisim@gmail.com" },
+        { "name": "shlomo", "email": "shlomo@gmail.com" },
+        { "name": "david", "email": "david@gmail.com" }
+    ],
+    "posts": [
+        { "title": "title1", "content": "blah blah blah", "user": 0 },
+        { "title": "title2", "content": "blah blah blah", "user": 0 },
+        { "title": "title3", "content": "blah blah blah", "user": 1 },
+        { "title": "title4", "content": "blah blah blah", "user": 1 },
+        { "title": "title5", "content": "blah blah blah", "user": 2 }
+    ],
+    "orders": [
+        {
+            "customer": 0,
+            "totalPrice": 100,
+            "cartEntries": [
+                { "product": 0, "quantity": 2 },
+                { "product": 1, "quantity": 3 }
+            ]
+        }
+    ]
+
+}
