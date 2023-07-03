@@ -1,0 +1,14 @@
+name: Append "nisim" to file
+on:
+  workflow_dispatch:
+
+jobs:
+  append:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Append "nisim" to file
+        run: echo "nisim" >> $HOME/filename.txt
