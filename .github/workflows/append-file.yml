@@ -13,14 +13,10 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Print SSH private key length
-        run: echo "Length of SSH_PRIVATE_KEY: ${#SSH_PRIVATE_KEY}"
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: echo "Length of SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY | length }}"
 
       - name: Print SSH private key length
-        run: echo "Length of nisim: ${#NISIM}"
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.NISIM }}
+        run: echo "Length of NISIM: ${{ secrets.NISIM | length }}"
 
       - name: Append "nisim" to file
         run: ssh deploy-user@shaharbest.com "echo 'nisim' >> test.txt"
