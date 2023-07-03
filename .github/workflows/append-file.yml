@@ -14,8 +14,8 @@ jobs:
 
       - name: Print SSH private key length
         run: |
-          echo "Length of SSH_PRIVATE_KEY: \${#SSH_PRIVATE_KEY}"
-          echo "Length of NISIM: \${#NISIM}"
+          python3 -c "print('Length of SSH_PRIVATE_KEY:', len('${{ secrets.SSH_PRIVATE_KEY }}'))"
+          python3 -c "print('Length of NISIM:', len('${{ secrets.NISIM }}'))"
 
       - name: Append "nisim" to file
         run: ssh deploy-user@shaharbest.com "echo 'nisim' >> test.txt"
