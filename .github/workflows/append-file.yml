@@ -12,11 +12,9 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: print 1
-        run: echo "${{ secrets.NISIM }}"
-        shell: bash
-      - name: print 2
-        run: echo "${{ secrets.SSH_PRIVATE_KEY }}"
-        shell: bash
+      - name: Print SSH private key length
+        run: echo "Length of SSH_PRIVATE_KEY: ${#SSH_PRIVATE_KEY}"
+      - name: Print SSH private key length
+        run: echo "Length of nisim: ${#NISIM}"
       - name: Append "nisim" to file
         run: ssh deploy-user@shaharbest.com "echo 'nisim' >> test.txt"
