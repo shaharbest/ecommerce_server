@@ -12,21 +12,5 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-
-      - name: shahar test
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        run: |
-          echo "${{secrets.SSH_PRIVATE_KEY}}" | sed 's/./& /g'
-
       - name: Append "nisim" to file
-        run: ssh -v deploy-user@shaharbest.com "echo 'nisim' >> test.txt"
-
-          # python3 -c "print('Length of SSH_PRIVATE_KEY:', len('${{ secrets.SSH_PRIVATE_KEY }}'))"
-
-
-      # - name: shahar test
-      #   env:
-      #     NISIM: ${{ secrets.NISIM }}
-      #   run: |
-      #     echo "${{secrets.NISIM}}" | sed 's/./& /g'
+        run: ssh -o StrictHostKeyChecking=no -v deploy-user@shaharbest.com "echo 'nisim' >> test.txt"
