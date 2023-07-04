@@ -1,31 +1,18 @@
 const express = require("express");
+const auth = require("../middlewares/auth");
+const generic = require('../controllers/generic');
 
 function generateRouter(model, propsToPopulate = []) {
   const router = express.Router();
 
-  router
-    .route("/")
-    .get(async (req, res) => {
-      res.json(await model.find().populate(propsToPopulate));
-    })
-    .post(async (req, res) => {
-      await model.create(req.body);
-      res.sendStatus(201);
-    });
+  router.route("/")
+    .get(generic.getAll(model, propsToPopulate))
+    .post(auth, generic.insertOne(model));
 
-  router
-    .route("/:id")
-    .get(async (req, res) => {
-      res.json(await model.findById(req.params.id).populate(propsToPopulate));
-    })
-    .delete(async (req, res) => {
-      await model.findByIdAndDelete(req.params.id);
-      res.send(`delete ${req.params.id}`);
-    })
-    .patch(async (req, res) => {
-      await model.findByIdAndUpdate(req.params.id, req.body);
-      res.send(`update ${req.params.id}`);
-    });
+  router.route("/:id")
+    .get(generic.getOneById(model, propsToPopulate))
+    .delete(auth, generic.deleteOneById(model))
+    .patch(auth, generic.updateOneById(model));
 
   return router;
 }
