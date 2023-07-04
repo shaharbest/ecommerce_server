@@ -3,14 +3,22 @@ const { mySchemaOptions } = require("./defaultOptions");
 
 const productSchema = new mongoose.Schema(
   {
-    name: String,
-    price: Number,
+    name: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
     category: {
       type: mongoose.Types.ObjectId,
+      required: true,
       ref: "Categories",
     },
     producer: {
       type: mongoose.Types.ObjectId,
+      required: true,
       ref: "Producers",
     },
   },

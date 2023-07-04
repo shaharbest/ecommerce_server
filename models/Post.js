@@ -3,11 +3,18 @@ const { mySchemaOptions } = require("./defaultOptions");
 
 const postSchema = new mongoose.Schema(
   {
-    title: String,
-    content: String,
+    title: {
+      type: String,
+      required: true,
+    },
+    content: {
+      type: String,
+      required: true,
+    },
     author: {
       type: mongoose.Types.ObjectId,
-      ref: "Users"
+      required: true,
+      ref: "Users",
     }
   },
   { ...mySchemaOptions }

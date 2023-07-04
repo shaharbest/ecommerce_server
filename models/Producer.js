@@ -3,7 +3,10 @@ const { mySchemaOptions } = require("./defaultOptions");
 
 const producerSchema = new mongoose.Schema(
   {
-    name: String,
+    name: {
+      type: String,
+      required: true,
+    },
   },
   { ...mySchemaOptions }
 );
